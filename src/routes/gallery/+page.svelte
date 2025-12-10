@@ -1,4 +1,11 @@
 <script lang="ts">
+  	import classroom from '$lib/assets/classroom.png';
+    import prayer from '$lib/assets/prayer-2.jpg';
+    import graduation from '$lib/assets/Graduation-ceremony.jpg';
+    import activities from '$lib/assets/activities.jpg';
+    import communityEvent from '$lib/assets/reading-quran.jpg';
+
+
 	// Gallery images - you can replace these with actual image paths
 	// For now, using placeholder structure that you can easily update
 	const galleryImages = [
@@ -7,37 +14,36 @@
 			title: 'Classroom Learning',
 			description: 'Students engaged in Quranic studies',
 			// Replace with actual image path: src: '/images/gallery/image1.jpg'
-			src: 'https://via.placeholder.com/400x300?text=Classroom+Learning'
+			src: classroom
 		},
 		{
 			id: 2,
 			title: 'Prayer Time',
 			description: 'Congregational prayers',
-			src: 'https://via.placeholder.com/400x300?text=Prayer+Time'
+			src: prayer
 		},
 		{
 			id: 3,
 			title: 'Arabic Class',
 			description: 'Learning Arabic language',
-			src: 'https://via.placeholder.com/400x300?text=Arabic+Class'
-		},
+			src: classroom},
 		{
 			id: 4,
 			title: 'Community Event',
 			description: 'Community gathering and celebration',
-			src: 'https://via.placeholder.com/400x300?text=Community+Event'
+			src: communityEvent
 		},
 		{
 			id: 5,
 			title: 'Student Activities',
 			description: 'Students participating in activities',
-			src: 'https://via.placeholder.com/400x300?text=Student+Activities'
+			src:activities
 		},
 		{
 			id: 6,
 			title: 'Graduation',
 			description: 'Graduation ceremony',
-			src: 'https://via.placeholder.com/400x300?text=Graduation'
+			src: graduation
 		}
 	];
 </script>
