@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
-	import hero_image from '$lib/assets/mosque-sunrise-architecture.jpg';
-	// import hero_image from '$lib/assets/hero-image.avif';
+	import { assets, heroStats } from '$lib/data/content';
 </script>
 
 <svelte:head>
@@ -74,15 +73,15 @@
 				<!-- Quick Stats (Optional) -->
 				<div class="mt-12 grid grid-cols-3 gap-8 border-t border-border pt-8">
 					<div>
-						<div class="text-2xl font-bold text-primary">500+</div>
+						<div class="text-2xl font-bold text-primary">{heroStats.students}</div>
 						<div class="text-sm text-muted-foreground">Students</div>
 					</div>
 					<div>
-						<div class="text-2xl font-bold text-primary">20+</div>
+						<div class="text-2xl font-bold text-primary">{heroStats.programs}</div>
 						<div class="text-sm text-muted-foreground">Programs</div>
 					</div>
 					<div>
-						<div class="text-2xl font-bold text-primary">15+</div>
+						<div class="text-2xl font-bold text-primary">{heroStats.years}</div>
 						<div class="text-sm text-muted-foreground">Years</div>
 					</div>
 				</div>
@@ -100,19 +99,13 @@
 						<div
 							class="flex h-full w-full items-center justify-center bg-linear-to-br from-primary/10 via-primary/5 to-background"
 						>
-							<!-- Decorative Icon/Illustration -->
-							<div class="text-center">
-								<!-- <div class="mb-4 text-9xl opacity-20">📖</div> -->
-								<img
-						src={hero_image}
-						alt="logo"
-						class="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-						loading="lazy"
-					/>
-                <p class="text-sm text-muted-foreground">
-								
-								</p>
-							</div>
+							<!-- Hero Image -->
+							<img
+								src={assets.hero.primary}
+								alt="Madrasha - Islamic Education Center"
+								class="h-full w-full object-cover"
+								loading="eager"
+							/>
 						</div>
 
 						<!-- Overlay Gradient -->

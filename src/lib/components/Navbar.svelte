@@ -2,14 +2,7 @@
 	import { page } from '$app/stores';
 	import { Button } from '$lib/components/ui/button';
 	import { cn } from '$lib/utils';
-
-	const navLinks = [
-		{ href: '/', label: 'Home' },
-		{ href: '/about', label: 'About' },
-		{ href: '/activities', label: 'Activities' },
-		{ href: '/gallery', label: 'Gallery' },
-		{ href: '/contact', label: 'Contact' }
-	];
+	import { navLinks } from '$lib/data/content';
 
 	function isActive(href: string): boolean {
 		return $page.url.pathname === href;

@@ -1,51 +1,5 @@
 <script lang="ts">
-  	import classroom from '$lib/assets/classroom.png';
-    import prayer from '$lib/assets/prayer-2.jpg';
-    import graduation from '$lib/assets/Graduation-ceremony.jpg';
-    import activities from '$lib/assets/activities.jpg';
-    import communityEvent from '$lib/assets/reading-quran.jpg';
-
-
-	// Gallery images - you can replace these with actual image paths
-	// For now, using placeholder structure that you can easily update
-	const galleryImages = [
-		{
-			id: 1,
-			title: 'Classroom Learning',
-			description: 'Students engaged in Quranic studies',
-			// Replace with actual image path: src: '/images/gallery/image1.jpg'
-			src: classroom
-		},
-		{
-			id: 2,
-			title: 'Prayer Time',
-			description: 'Congregational prayers',
-			src: prayer
-		},
-		{
-			id: 3,
-			title: 'Arabic Class',
-			description: 'Learning Arabic language',
-			src: classroom},
-		{
-			id: 4,
-			title: 'Community Event',
-			description: 'Community gathering and celebration',
-			src: communityEvent
-		},
-		{
-			id: 5,
-			title: 'Student Activities',
-			description: 'Students participating in activities',
-			src:activities
-		},
-		{
-			id: 6,
-			title: 'Graduation',
-			description: 'Graduation ceremony',
-			src: graduation
-		}
-	];
+	import { galleryImages } from '$lib/data/content';
 </script>
 
 <svelte:head>
@@ -91,17 +45,5 @@
 	</div>
 </section>
 
-<!-- Note for adding images -->
-<section class="bg-muted py-8">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mx-auto max-w-3xl text-center text-sm text-muted-foreground">
-			<p>
-				<strong>Note:</strong> Replace the placeholder images with your actual photos. Add images to
-				the <code class="bg-background px-2 py-1 rounded">static/images/gallery/</code> folder and
-				update the <code class="bg-background px-2 py-1 rounded">src</code> paths in the gallery
-				array.
-			</p>
-		</div>
-	</div>
-</section>
+
 

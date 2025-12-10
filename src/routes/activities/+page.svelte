@@ -1,37 +1,5 @@
 <script lang="ts">
-	// Activities data - you can move this to a separate file or fetch from an API later
-	const activities = [
-		{
-			title: 'Quranic Studies',
-			description: 'Comprehensive Quran memorization and recitation classes with proper Tajweed rules.',
-			icon: '📖'
-		},
-		{
-			title: 'Arabic Language',
-			description: 'Learn Arabic language skills including reading, writing, and conversation.',
-			icon: '✍️'
-		},
-		{
-			title: 'Islamic Studies',
-			description: 'In-depth study of Islamic history, jurisprudence, and theology.',
-			icon: '🕌'
-		},
-		{
-			title: 'Daily Prayers',
-			description: 'Regular congregational prayers and learning the proper way to perform Salah.',
-			icon: '🤲'
-		},
-		{
-			title: 'Community Service',
-			description: 'Engaging in community outreach and service projects.',
-			icon: '🤝'
-		},
-		{
-			title: 'Youth Programs',
-			description: 'Special programs designed for youth development and engagement.',
-			icon: '👥'
-		}
-	];
+	import { activities } from '$lib/data/content';
 </script>
 
 <svelte:head>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
+	import { contactInfo } from '$lib/data/content';
 
 	let formData = $state({
 		name: '',
@@ -75,31 +76,24 @@
 						<div>
 							<h3 class="font-semibold mb-2">Address</h3>
 							<p class="text-muted-foreground">
-								<!-- Update with your actual address -->
-								123 Education Street<br />
-								City, State 12345
+								{contactInfo.address.street}<br />
+								{contactInfo.address.city}
 							</p>
 						</div>
 						<div>
 							<h3 class="font-semibold mb-2">Phone</h3>
-							<p class="text-muted-foreground">
-								<!-- Update with your actual phone number -->
-								(123) 456-7890
-							</p>
+							<p class="text-muted-foreground">{contactInfo.phone}</p>
 						</div>
 						<div>
 							<h3 class="font-semibold mb-2">Email</h3>
-							<p class="text-muted-foreground">
-								<!-- Update with your actual email -->
-								info@madrasha.example.com
-							</p>
+							<p class="text-muted-foreground">{contactInfo.email}</p>
 						</div>
 						<div>
 							<h3 class="font-semibold mb-2">Hours</h3>
 							<p class="text-muted-foreground">
-								Monday - Friday: 9:00 AM - 5:00 PM<br />
-								Saturday: 9:00 AM - 1:00 PM<br />
-								Sunday: Closed
+								{contactInfo.hours.weekdays}<br />
+								{contactInfo.hours.saturday}<br />
+								{contactInfo.hours.friday}
 							</p>
 						</div>
 					</div>
