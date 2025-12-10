@@ -1,6 +1,14 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { contactInfo } from '$lib/data/content';
+	import { setupScrollAnimation } from '$lib/utils/scroll-animation';
+
+	let contactSection: HTMLElement;
+
+	onMount(() => {
+		if (contactSection) setupScrollAnimation(contactSection, { animation: 'slide-up' });
+	});
 
 	let formData = $state({
 		name: '',
@@ -53,11 +61,13 @@
 </svelte:head>
 
 <!-- Page Header -->
-<section class="bg-linear-to-b from-primary/10 to-background py-12 sm:py-16">
+<section class="bg-linear-to-b from-primary/10 to-background page-header-spacing">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl text-center">
-			<h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Contact Us</h1>
-			<p class="mt-4 text-lg text-muted-foreground">
+			<h1 class="text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+				Contact Us
+			</h1>
+			<p class="mt-6 text-xl leading-relaxed text-muted-foreground">
 				We'd love to hear from you. Send us a message and we'll respond as soon as possible.
 			</p>
 		</div>
@@ -65,13 +75,13 @@
 </section>
 
 <!-- Contact Section -->
-<section class="py-16">
+<section bind:this={contactSection} class="content-spacing">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mx-auto max-w-4xl">
+		<div class="mx-auto max-w-5xl">
 			<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
 				<!-- Contact Information -->
-				<div>
-					<h2 class="text-2xl font-bold mb-6">Get in Touch</h2>
+				<div class="rounded-2xl border border-border/50 bg-card p-8 shadow-md">
+					<h2 class="text-3xl font-bold mb-8 text-foreground">Get in Touch</h2>
 					<div class="space-y-6">
 						<div>
 							<h3 class="font-semibold mb-2">Address</h3>
@@ -100,8 +110,8 @@
 				</div>
 
 				<!-- Contact Form -->
-				<div>
-					<h2 class="text-2xl font-bold mb-6">Send us a Message</h2>
+				<div class="rounded-2xl border border-border/50 bg-card p-8 shadow-md">
+					<h2 class="text-3xl font-bold mb-8 text-foreground">Send us a Message</h2>
 					<form onsubmit={handleSubmit} class="space-y-6">
 						<!-- Name -->
 						<div>
@@ -114,7 +124,7 @@
 								name="name"
 								bind:value={formData.name}
 								required
-								class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+								class="w-full rounded-xl border border-input bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all hover:border-primary/50"
 								placeholder="Your name"
 							/>
 						</div>
@@ -130,7 +140,7 @@
 								name="email"
 								bind:value={formData.email}
 								required
-								class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+								class="w-full rounded-xl border border-input bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all hover:border-primary/50"
 								placeholder="your.email@example.com"
 							/>
 						</div>
@@ -143,7 +153,7 @@
 								id="phone"
 								name="phone"
 								bind:value={formData.phone}
-								class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+								class="w-full rounded-xl border border-input bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all hover:border-primary/50"
 								placeholder="(123) 456-7890"
 							/>
 						</div>
@@ -159,7 +169,7 @@
 								name="subject"
 								bind:value={formData.subject}
 								required
-								class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+								class="w-full rounded-xl border border-input bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all hover:border-primary/50"
 								placeholder="What is this regarding?"
 							/>
 						</div>
@@ -175,13 +185,17 @@
 								bind:value={formData.message}
 								required
 								rows="5"
-								class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+								class="w-full rounded-xl border border-input bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all hover:border-primary/50 resize-none"
 								placeholder="Your message..."
 							></textarea>
 						</div>
 
 						<!-- Submit Button -->
-						<Button type="submit" disabled={isSubmitting} class="w-full">
+						<Button
+							type="submit"
+							disabled={isSubmitting}
+							class="w-full shadow-lg hover:shadow-xl transition-all"
+						>
 							{isSubmitting ? 'Sending...' : 'Send Message'}
 						</Button>
 

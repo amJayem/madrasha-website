@@ -1,5 +1,12 @@
 <script lang="ts">
-	// You can add any reactive logic here if needed
+	import { onMount } from 'svelte';
+	import { setupScrollAnimation } from '$lib/utils/scroll-animation';
+
+	let contentSection: HTMLElement;
+
+	onMount(() => {
+		if (contentSection) setupScrollAnimation(contentSection, { animation: 'slide-up' });
+	});
 </script>
 
 <svelte:head>
@@ -8,11 +15,13 @@
 </svelte:head>
 
 <!-- Page Header -->
-<section class="bg-linear-to-b from-primary/10 to-background py-12 sm:py-16">
+<section class="bg-linear-to-b from-primary/10 to-background page-header-spacing">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl text-center">
-			<h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">About Us</h1>
-			<p class="mt-4 text-lg text-muted-foreground">
+			<h1 class="text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+				About Us
+			</h1>
+			<p class="mt-6 text-xl leading-relaxed text-muted-foreground">
 				Learn more about our mission, values, and commitment to Islamic education
 			</p>
 		</div>
@@ -20,13 +29,13 @@
 </section>
 
 <!-- Main Content -->
-<section class="py-16">
+<section bind:this={contentSection} class="content-spacing">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mx-auto max-w-3xl prose prose-lg dark:prose-invert">
+		<div class="mx-auto max-w-4xl space-y-16">
 			<!-- Mission -->
-			<div class="mb-12">
-				<h2 class="text-3xl font-bold mb-4">Our Mission</h2>
-				<p class="text-muted-foreground leading-relaxed">
+			<div class="rounded-2xl border border-border/50 bg-card p-10 shadow-md">
+				<h2 class="text-4xl font-bold mb-6 text-foreground">Our Mission</h2>
+				<p class="text-lg text-muted-foreground leading-relaxed">
 					Our Madrasha is dedicated to providing comprehensive Islamic education that combines
 					traditional Islamic knowledge with modern educational methods. We aim to nurture
 					students who are not only knowledgeable but also possess strong moral character and
@@ -35,9 +44,9 @@
 			</div>
 
 			<!-- Vision -->
-			<div class="mb-12">
-				<h2 class="text-3xl font-bold mb-4">Our Vision</h2>
-				<p class="text-muted-foreground leading-relaxed">
+			<div class="rounded-2xl border border-border/50 bg-card p-10 shadow-md">
+				<h2 class="text-4xl font-bold mb-6 text-foreground">Our Vision</h2>
+				<p class="text-lg text-muted-foreground leading-relaxed">
 					To be a leading institution in Islamic education, recognized for excellence in teaching,
 					character development, and community service. We envision a future where our students
 					become positive contributors to society, guided by Islamic principles and values.
@@ -45,36 +54,36 @@
 			</div>
 
 			<!-- Values -->
-			<div class="mb-12">
-				<h2 class="text-3xl font-bold mb-4">Our Values</h2>
-				<ul class="space-y-3 text-muted-foreground">
+			<div class="rounded-2xl border border-border/50 bg-card p-10 shadow-md">
+				<h2 class="text-4xl font-bold mb-6 text-foreground">Our Values</h2>
+				<ul class="space-y-4 text-lg text-muted-foreground">
 					<li class="flex items-start">
-						<span class="mr-2 text-primary">•</span>
-						<span><strong class="text-foreground">Excellence:</strong> Striving for the highest standards in education and character</span>
+						<span class="mr-3 text-2xl text-primary">•</span>
+						<span><strong class="text-foreground font-semibold">Excellence:</strong> Striving for the highest standards in education and character</span>
 					</li>
 					<li class="flex items-start">
-						<span class="mr-2 text-primary">•</span>
-						<span><strong class="text-foreground">Respect:</strong> Treating all members of our community with dignity and kindness</span>
+						<span class="mr-3 text-2xl text-primary">•</span>
+						<span><strong class="text-foreground font-semibold">Respect:</strong> Treating all members of our community with dignity and kindness</span>
 					</li>
 					<li class="flex items-start">
-						<span class="mr-2 text-primary">•</span>
-						<span><strong class="text-foreground">Integrity:</strong> Upholding honesty and ethical behavior in all our actions</span>
+						<span class="mr-3 text-2xl text-primary">•</span>
+						<span><strong class="text-foreground font-semibold">Integrity:</strong> Upholding honesty and ethical behavior in all our actions</span>
 					</li>
 					<li class="flex items-start">
-						<span class="mr-2 text-primary">•</span>
-						<span><strong class="text-foreground">Community:</strong> Building strong bonds and supporting one another</span>
+						<span class="mr-3 text-2xl text-primary">•</span>
+						<span><strong class="text-foreground font-semibold">Community:</strong> Building strong bonds and supporting one another</span>
 					</li>
 					<li class="flex items-start">
-						<span class="mr-2 text-primary">•</span>
-						<span><strong class="text-foreground">Service:</strong> Contributing positively to our community and society</span>
+						<span class="mr-3 text-2xl text-primary">•</span>
+						<span><strong class="text-foreground font-semibold">Service:</strong> Contributing positively to our community and society</span>
 					</li>
 				</ul>
 			</div>
 
-			<!-- History (Optional - you can customize this) -->
-			<div class="mb-12">
-				<h2 class="text-3xl font-bold mb-4">Our History</h2>
-				<p class="text-muted-foreground leading-relaxed">
+			<!-- History -->
+			<div class="rounded-2xl border border-border/50 bg-card p-10 shadow-md">
+				<h2 class="text-4xl font-bold mb-6 text-foreground">Our History</h2>
+				<p class="text-lg text-muted-foreground leading-relaxed">
 					Founded with a vision to provide quality Islamic education, our Madrasha has been
 					serving the community for years. We have grown from humble beginnings to become a
 					recognized institution committed to nurturing young minds and hearts.

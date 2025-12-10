@@ -1,6 +1,18 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { assets, heroStats } from '$lib/data/content';
+	import { setupScrollAnimation } from '$lib/utils/scroll-animation';
+
+	let missionSection: HTMLElement;
+	let featuresSection: HTMLElement;
+	let ctaSection: HTMLElement;
+
+	onMount(() => {
+		if (missionSection) setupScrollAnimation(missionSection, { animation: 'slide-up' });
+		if (featuresSection) setupScrollAnimation(featuresSection, { animation: 'fade' });
+		if (ctaSection) setupScrollAnimation(ctaSection, { animation: 'slide-up' });
+	});
 </script>
 
 <svelte:head>
@@ -46,7 +58,7 @@
 
 				<!-- Main Heading -->
 				<h1
-					class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+					class="text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
 				>
 					Welcome to Our
 					<span class="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -55,7 +67,7 @@
 				</h1>
 
 				<!-- Subheading -->
-				<p class="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
+				<p class="mt-8 text-xl leading-8 text-muted-foreground sm:text-2xl">
 					Dedicated to providing quality Islamic education and nurturing the next generation of
 					learners with knowledge, wisdom, and character.
 				</p>
@@ -130,45 +142,51 @@
 </section>
 
 <!-- Features Section -->
-<section class="py-16 sm:py-24">
+<section bind:this={missionSection} class="section-spacing">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl text-center">
-			<h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+		<div class="mx-auto max-w-3xl text-center">
+			<h2 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
 				Our Mission
 			</h2>
-			<p class="mt-4 text-lg text-muted-foreground">
+			<p class="mt-6 text-xl leading-relaxed text-muted-foreground">
 				We strive to create an environment that fosters spiritual growth, academic excellence, and
 				strong moral character.
 			</p>
 		</div>
 
-		<div class="mx-auto mt-16 max-w-5xl">
+		<div bind:this={featuresSection} class="mx-auto mt-20 max-w-6xl">
 			<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 				<!-- Feature 1 -->
-				<div class="rounded-lg border bg-card p-6 shadow-sm">
-					<div class="mb-4 text-3xl">📚</div>
-					<h3 class="text-xl font-semibold mb-2">Quality Education</h3>
-					<p class="text-muted-foreground">
+				<div
+					class="card-hover rounded-2xl border border-border/50 bg-card p-8 shadow-md hover:border-primary/20"
+				>
+					<div class="mb-6 text-5xl">📚</div>
+					<h3 class="text-2xl font-bold mb-3 text-foreground">Quality Education</h3>
+					<p class="text-muted-foreground leading-relaxed">
 						Comprehensive curriculum covering Islamic studies, Arabic language, and modern
 						subjects.
 					</p>
 				</div>
 
 				<!-- Feature 2 -->
-				<div class="rounded-lg border bg-card p-6 shadow-sm">
-					<div class="mb-4 text-3xl">🤲</div>
-					<h3 class="text-xl font-semibold mb-2">Spiritual Growth</h3>
-					<p class="text-muted-foreground">
+				<div
+					class="card-hover rounded-2xl border border-border/50 bg-card p-8 shadow-md hover:border-primary/20"
+				>
+					<div class="mb-6 text-5xl">🤲</div>
+					<h3 class="text-2xl font-bold mb-3 text-foreground">Spiritual Growth</h3>
+					<p class="text-muted-foreground leading-relaxed">
 						Nurturing faith and character through daily prayers, Quranic studies, and Islamic
 						values.
 					</p>
 				</div>
 
 				<!-- Feature 3 -->
-				<div class="rounded-lg border bg-card p-6 shadow-sm">
-					<div class="mb-4 text-3xl">👥</div>
-					<h3 class="text-xl font-semibold mb-2">Community</h3>
-					<p class="text-muted-foreground">
+				<div
+					class="card-hover rounded-2xl border border-border/50 bg-card p-8 shadow-md hover:border-primary/20"
+				>
+					<div class="mb-6 text-5xl">👥</div>
+					<h3 class="text-2xl font-bold mb-3 text-foreground">Community</h3>
+					<p class="text-muted-foreground leading-relaxed">
 						Building a strong, supportive community of students, teachers, and families.
 					</p>
 				</div>
@@ -178,18 +196,20 @@
 </section>
 
 <!-- Call to Action -->
-<section class="bg-muted py-16">
+<section bind:this={ctaSection} class="section-spacing section-alt">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl text-center">
-			<h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+		<div class="mx-auto max-w-3xl text-center">
+			<h2 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
 				Join Our Community
 			</h2>
-			<p class="mt-4 text-lg text-muted-foreground">
+			<p class="mt-6 text-xl leading-relaxed text-muted-foreground">
 				Discover our programs and activities. We welcome students and families who share our
 				commitment to Islamic education.
 			</p>
-			<div class="mt-8">
-				<Button href="/activities" size="lg"> View Activities </Button>
+			<div class="mt-10">
+				<Button href="/activities" size="lg" class="shadow-lg hover:shadow-xl transition-shadow">
+					View Activities
+				</Button>
 			</div>
 		</div>
 	</div>

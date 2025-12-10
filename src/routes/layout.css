@@ -117,5 +117,88 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Subtle dot pattern background */
+    background-image: radial-gradient(circle, oklch(0.922 0 0) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: 0 0;
+  }
+}
+
+/* Custom utility classes for animations and effects */
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Slide up animation */
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Stagger animation delays */
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-hover:hover {
+    @apply shadow-lg;
+    transform: translateY(-4px);
+  }
+
+  /* Section spacing - for home page hero sections */
+  .section-spacing {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+
+  /* Page header spacing - moderate for other pages */
+  .page-header-spacing {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  /* Content section spacing - moderate for other pages */
+  .content-spacing {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  /* Alternating section backgrounds */
+  .section-alt {
+    @apply bg-muted/30;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
