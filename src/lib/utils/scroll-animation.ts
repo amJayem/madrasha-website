@@ -17,8 +17,7 @@ export function setupScrollAnimation(
 		(entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					const animationClass =
-						animation === 'slide-up' ? 'animate-slide-up' : 'animate-fade-in';
+					const animationClass = animation === 'slide-up' ? 'animate-slide-up' : 'animate-fade-in';
 					entry.target.classList.add(animationClass);
 					observer.unobserve(entry.target);
 				}
@@ -31,4 +30,3 @@ export function setupScrollAnimation(
 
 	return () => observer.disconnect();
 }
-
