@@ -9,24 +9,28 @@
 	}
 </script>
 
-<nav class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+<nav class="sticky top-0 z-50 w-full border-b border-teal-100/50 dark:border-teal-900/50 bg-white/95 dark:bg-background/95 backdrop-blur-md shadow-sm supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-background/80">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex h-16 items-center justify-between">
+		<div class="flex h-20 items-center justify-between">
 			<!-- Logo/Brand -->
-			<a href="/" class="flex items-center space-x-2">
-				<span class="text-xl font-bold text-primary">Madrasha</span>
+			<a href="/" class="flex items-center space-x-2 transition-opacity hover:opacity-80">
+				<span
+					class="text-2xl font-bold bg-linear-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent"
+				>
+					Madrasha
+				</span>
 			</a>
 
 			<!-- Desktop Navigation -->
-			<div class="hidden md:flex md:items-center md:space-x-6">
+			<div class="hidden md:flex md:items-center md:space-x-8">
 				{#each navLinks as link}
 					<a
 						href={link.href}
 						class={cn(
-							'text-sm font-medium transition-colors hover:text-primary',
+							'text-sm font-semibold transition-all duration-200 px-2 py-1',
 							isActive(link.href)
-								? 'text-primary border-b-2 border-primary pb-1'
-								: 'text-muted-foreground'
+								? 'text-teal-600 dark:text-teal-400 border-b-2 border-teal-600 dark:border-teal-400'
+								: 'text-muted-foreground hover:text-teal-600 dark:hover:text-teal-400 hover:underline underline-offset-4'
 						)}
 					>
 						{link.label}
@@ -59,16 +63,16 @@
 		</div>
 
 		<!-- Mobile Navigation -->
-		<div id="mobile-menu" class="hidden md:hidden pb-4">
+		<div id="mobile-menu" class="hidden md:hidden pb-4 pt-4">
 			<div class="flex flex-col space-y-2">
 				{#each navLinks as link}
 					<a
 						href={link.href}
 						class={cn(
-							'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+							'px-4 py-3 text-sm font-semibold rounded-lg transition-all duration-200',
 							isActive(link.href)
-								? 'bg-primary text-primary-foreground'
-								: 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+								? 'bg-teal-50 dark:bg-teal-950/30 text-teal-600 dark:text-teal-400 border-l-4 border-teal-600 dark:border-teal-400'
+								: 'text-muted-foreground hover:bg-teal-50/50 dark:hover:bg-teal-950/20 hover:text-teal-600 dark:hover:text-teal-400'
 						)}
 					>
 						{link.label}
