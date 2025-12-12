@@ -206,54 +206,116 @@
 	</div>
 </section>
 
-<!-- Features Section -->
-<section bind:this={missionSection} class="section-spacing">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mx-auto max-w-3xl text-center">
-			<h2 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+<!-- Mission Section -->
+<section bind:this={missionSection} class="section-spacing relative">
+	<!-- Subtle Background Pattern -->
+	<div class="absolute inset-0 pattern-dot-grid opacity-30" aria-hidden="true"></div>
+
+	<div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Section Header -->
+		<div class="mx-auto max-w-4xl text-center">
+			<!-- Badge -->
+			<div
+				class="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200/50 dark:border-teal-800/50 bg-teal-50/80 dark:bg-teal-950/30 px-4 py-2 text-sm font-semibold text-teal-700 dark:text-teal-300 shadow-sm backdrop-blur-sm"
+			>
+				<span class="text-base">🎯</span>
+				<span>Our Commitment</span>
+			</div>
+
+			<h2
+				class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+			>
 				Our Mission
 			</h2>
-			<p class="mt-6 text-xl leading-relaxed text-muted-foreground">
+
+			<!-- Intro Paragraph -->
+			<p
+				class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl lg:max-w-3xl mx-auto"
+			>
 				We strive to create an environment that fosters spiritual growth, academic excellence, and
-				strong moral character.
+				strong moral character. Our mission is to provide comprehensive Islamic education that
+				combines traditional teachings with modern pedagogical approaches, ensuring our students
+				develop into well-rounded individuals who contribute positively to their communities while
+				maintaining their Islamic identity and values.
 			</p>
 		</div>
 
-		<div bind:this={featuresSection} class="mx-auto mt-20 max-w-6xl">
-			<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-				<!-- Feature 1 -->
+		<!-- Mission Cards -->
+		<div bind:this={featuresSection} class="mx-auto mt-16 sm:mt-20 lg:mt-24 max-w-7xl">
+			<div class="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
+				<!-- Mission Card 1: Quality Education -->
 				<div
-					class="card-hover rounded-2xl border border-border/50 bg-card p-8 shadow-md hover:border-primary/20"
+					class="group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-2"
 				>
-					<div class="mb-6 text-5xl">📚</div>
-					<h3 class="text-2xl font-bold mb-3 text-foreground">Quality Education</h3>
+					<!-- Icon Container -->
+					<div
+						class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-teal-100 to-emerald-100 dark:from-teal-900/50 dark:to-emerald-900/50 text-4xl shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg"
+					>
+						📚
+					</div>
+
+					<h3 class="mb-4 text-2xl font-bold text-foreground">Quality Education</h3>
 					<p class="text-muted-foreground leading-relaxed">
 						Comprehensive curriculum covering Islamic studies, Arabic language, and modern
-						subjects.
+						subjects. We ensure our students receive the highest quality education that prepares
+						them for both academic success and spiritual fulfillment.
 					</p>
+
+					<!-- Decorative Accent -->
+					<div
+						class="absolute -right-6 -bottom-6 h-24 w-24 rounded-full bg-teal-100/30 dark:bg-teal-900/30 blur-2xl transition-opacity duration-300 group-hover:opacity-80"
+						aria-hidden="true"
+					></div>
 				</div>
 
-				<!-- Feature 2 -->
+				<!-- Mission Card 2: Spiritual Growth -->
 				<div
-					class="card-hover rounded-2xl border border-border/50 bg-card p-8 shadow-md hover:border-primary/20"
+					class="group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-2"
 				>
-					<div class="mb-6 text-5xl">🤲</div>
-					<h3 class="text-2xl font-bold mb-3 text-foreground">Spiritual Growth</h3>
+					<!-- Icon Container -->
+					<div
+						class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/50 dark:to-teal-900/50 text-4xl shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg"
+					>
+						🤲
+					</div>
+
+					<h3 class="mb-4 text-2xl font-bold text-foreground">Spiritual Growth</h3>
 					<p class="text-muted-foreground leading-relaxed">
 						Nurturing faith and character through daily prayers, Quranic studies, and Islamic
-						values.
+						values. We guide our students on a path of spiritual development that strengthens
+						their connection with Allah and their understanding of Islamic principles.
 					</p>
+
+					<!-- Decorative Accent -->
+					<div
+						class="absolute -right-6 -bottom-6 h-24 w-24 rounded-full bg-emerald-100/30 dark:bg-emerald-900/30 blur-2xl transition-opacity duration-300 group-hover:opacity-80"
+						aria-hidden="true"
+					></div>
 				</div>
 
-				<!-- Feature 3 -->
+				<!-- Mission Card 3: Community -->
 				<div
-					class="card-hover rounded-2xl border border-border/50 bg-card p-8 shadow-md hover:border-primary/20"
+					class="group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-2"
 				>
-					<div class="mb-6 text-5xl">👥</div>
-					<h3 class="text-2xl font-bold mb-3 text-foreground">Community</h3>
+					<!-- Icon Container -->
+					<div
+						class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-teal-100 to-emerald-100 dark:from-teal-900/50 dark:to-emerald-900/50 text-4xl shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:shadow-lg"
+					>
+						👥
+					</div>
+
+					<h3 class="mb-4 text-2xl font-bold text-foreground">Community</h3>
 					<p class="text-muted-foreground leading-relaxed">
-						Building a strong, supportive community of students, teachers, and families.
+						Building a strong, supportive community of students, teachers, and families. We
+						foster an environment where everyone feels valued, respected, and part of a larger
+						extended family united by faith and shared values.
 					</p>
+
+					<!-- Decorative Accent -->
+					<div
+						class="absolute -right-6 -bottom-6 h-24 w-24 rounded-full bg-teal-100/30 dark:bg-teal-900/30 blur-2xl transition-opacity duration-300 group-hover:opacity-80"
+						aria-hidden="true"
+					></div>
 				</div>
 			</div>
 		</div>
