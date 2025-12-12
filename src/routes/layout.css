@@ -119,6 +119,9 @@
 		@apply bg-background text-foreground;
 		/* Background pattern is now handled by BackgroundPattern component */
 	}
+	p {
+		@apply leading-relaxed;
+	}
 }
 
 /* Custom utility classes for animations and effects */
@@ -161,7 +164,7 @@
 
 	/* Section spacing - for home page hero sections */
 	.section-spacing {
-		@apply py-20 sm:py-28 lg:py-32;
+		@apply py-24 sm:py-32 lg:py-40;
 	}
 
 	/* Page header spacing - moderate for other pages */

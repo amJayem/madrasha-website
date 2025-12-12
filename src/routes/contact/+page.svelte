@@ -162,7 +162,7 @@
 						<div class="flex items-start gap-4">
 							<span class="mt-1 text-2xl text-teal-600 dark:text-teal-400">🕐</span>
 							<div>
-								<h3 class="mb-2 font-semibold text-foreground">Hours</h3>
+								<h3 class="mb-2 font-semibold text-foreground">Office Hours</h3>
 								<p class="text-muted-foreground leading-relaxed">
 									{contactInfo.hours.weekdays}<br />
 									{contactInfo.hours.saturday}<br />
@@ -203,7 +203,7 @@
 								name="name"
 								bind:value={formData.name}
 								required
-								class="w-full rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
+								class="w-full min-h-[44px] rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
 								placeholder="Your name"
 							/>
 						</div>
@@ -219,7 +219,7 @@
 								name="email"
 								bind:value={formData.email}
 								required
-								class="w-full rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
+								class="w-full min-h-[44px] rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
 								placeholder="your.email@example.com"
 							/>
 						</div>
@@ -232,7 +232,7 @@
 								id="phone"
 								name="phone"
 								bind:value={formData.phone}
-								class="w-full rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
+								class="w-full min-h-[44px] rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
 								placeholder="(123) 456-7890"
 							/>
 						</div>
@@ -248,7 +248,7 @@
 								name="subject"
 								bind:value={formData.subject}
 								required
-								class="w-full rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
+								class="w-full min-h-[44px] rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700"
 								placeholder="What is this regarding?"
 							/>
 						</div>
@@ -264,7 +264,7 @@
 								bind:value={formData.message}
 								required
 								rows="5"
-								class="w-full rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700 resize-none"
+								class="w-full min-h-[120px] rounded-xl border border-teal-200/50 dark:border-teal-800/50 bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:border-teal-500 transition-all hover:border-teal-300 dark:hover:border-teal-700 resize-none leading-relaxed"
 								placeholder="Your message..."
 							></textarea>
 						</div>
@@ -288,11 +288,14 @@
 						<!-- Success/Error Message -->
 						{#if submitMessage}
 							<div
-								class="rounded-md p-4 {submitMessage.type === 'success'
-									? 'bg-green-50 text-green-800 dark:bg-green-900/20 dark:text-green-400'
-									: 'bg-red-50 text-red-800 dark:bg-red-900/20 dark:text-red-400'}"
+								class="rounded-xl p-4 border-2 {submitMessage.type === 'success'
+									? 'bg-green-50/90 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-200 dark:border-green-800'
+									: 'bg-red-50/90 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-200 dark:border-red-800'} shadow-md transition-all duration-300"
 							>
-								{submitMessage.text}
+								<div class="flex items-center gap-2">
+									<span class="text-xl">{submitMessage.type === 'success' ? '✓' : '✕'}</span>
+									<span class="font-medium">{submitMessage.text}</span>
+								</div>
 							</div>
 						{/if}
 					</form>

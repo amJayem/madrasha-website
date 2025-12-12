@@ -9,7 +9,7 @@
 	}
 </script>
 
-<nav class="sticky top-0 z-50 w-full border-b border-teal-100/50 dark:border-teal-900/50 bg-white/95 dark:bg-background/95 backdrop-blur-md shadow-sm supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-background/80">
+<nav class="sticky top-0 z-50 w-full border-b-2 border-teal-200/60 dark:border-teal-800/60 bg-white/98 dark:bg-background/98 backdrop-blur-md shadow-md supports-backdrop-filter:bg-white/90 dark:supports-backdrop-filter:bg-background/90">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex h-20 items-center justify-between">
 			<!-- Logo/Brand -->

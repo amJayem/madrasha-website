@@ -53,54 +53,62 @@
 	<div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-20">
 			<!-- Left Column: Text Content -->
-			<div class="text-center lg:text-left">
-				<!-- Badge Above Headline -->
+			<div class="relative text-center lg:text-left">
+				<!-- Background Panel for Text Contrast -->
 				<div
-					class="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200/50 dark:border-teal-800/50 bg-teal-50/80 dark:bg-teal-950/30 px-4 py-2 text-sm font-semibold text-teal-700 dark:text-teal-300 shadow-sm backdrop-blur-sm"
-				>
-					<span class="text-base">🕌</span>
-					<span>Quality Islamic Education</span>
-				</div>
+					class="absolute -inset-4 rounded-3xl bg-white/70 dark:bg-background/70 backdrop-blur-sm -z-10"
+					aria-hidden="true"
+				></div>
 
-				<!-- Main Heading -->
-				<h1
-					class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-				>
-					Welcome to Our
-					<span
-						class="block bg-linear-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent"
+				<div class="relative">
+					<!-- Badge Above Headline -->
+					<div
+						class="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200/50 dark:border-teal-800/50 bg-teal-50/90 dark:bg-teal-950/40 px-4 py-2 text-sm font-semibold text-teal-700 dark:text-teal-300 shadow-sm backdrop-blur-sm"
 					>
-						Madrasha
-					</span>
-				</h1>
+						<span class="text-base">🕌</span>
+						<span>Quality Islamic Education</span>
+					</div>
 
-				<!-- Subheading -->
-				<p
-					class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl lg:max-w-2xl"
-				>
-					Empowering minds, enriching souls. Where faith meets knowledge, and tradition inspires
-					excellence for generations to come.
-				</p>
+					<!-- Main Heading -->
+					<h1
+						class="text-4xl font-bold tracking-tight text-gray-900 dark:text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+					>
+						Welcome to Our
+						<span
+							class="block bg-linear-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent"
+						>
+							Madrasha
+						</span>
+					</h1>
 
-				<!-- CTA Buttons -->
-				<div
-					class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
-				>
-					<Button
-						href="/about"
-						size="lg"
-						class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white shadow-lg shadow-teal-500/25 hover:shadow-xl hover:shadow-teal-500/30 transition-all duration-300"
+					<!-- Subheading -->
+					<p
+						class="mt-6 text-lg leading-relaxed text-gray-700 dark:text-muted-foreground sm:text-xl md:text-2xl lg:max-w-2xl font-medium"
 					>
-						Learn More
-					</Button>
-					<Button
-						href="/contact"
-						variant="outline"
-						size="lg"
-						class="w-full sm:w-auto border-2 border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/30 hover:border-teal-300 dark:hover:border-teal-700 transition-all duration-300"
+						Islamic Education for Children & Youth. Empowering minds, enriching souls. Where faith
+						meets knowledge, and tradition inspires excellence.
+					</p>
+
+					<!-- CTA Buttons -->
+					<div
+						class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
 					>
-						Contact Us
-					</Button>
+						<Button
+							href="/about"
+							size="lg"
+							class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white shadow-lg shadow-teal-500/25 hover:shadow-xl hover:shadow-teal-500/30 transition-all duration-300"
+						>
+							Learn More
+						</Button>
+						<Button
+							href="/contact"
+							variant="outline"
+							size="lg"
+							class="w-full sm:w-auto border-2 border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/30 hover:border-teal-300 dark:hover:border-teal-700 transition-all duration-300"
+						>
+							Contact Us
+						</Button>
+					</div>
 				</div>
 			</div>
 
@@ -184,7 +192,7 @@
 				class="group relative overflow-hidden rounded-2xl border border-teal-100/50 dark:border-teal-900/50 bg-card/80 dark:bg-card/60 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-lg hover:shadow-teal-500/10 hover:-translate-y-1"
 			>
 				<div class="text-3xl font-bold text-teal-600 dark:text-teal-400">{heroStats.years}</div>
-				<div class="mt-2 text-sm font-medium text-muted-foreground">Years of Excellence</div>
+				<div class="mt-2 text-sm font-medium text-muted-foreground">Years Serving Community</div>
 				<!-- Decorative accent -->
 				<div
 					class="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-teal-100/30 dark:bg-teal-900/30 blur-xl"
@@ -209,9 +217,9 @@
 </section>
 
 <!-- Mission Section -->
-<section bind:this={missionSection} class="section-spacing relative">
+<section bind:this={missionSection} class="section-spacing relative bg-muted/30">
 	<!-- Subtle Background Pattern -->
-	<div class="absolute inset-0 pattern-dot-grid opacity-30" aria-hidden="true"></div>
+	<div class="absolute inset-0 pattern-dot-grid opacity-20" aria-hidden="true"></div>
 
 	<div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Section Header -->
@@ -225,7 +233,7 @@
 			</div>
 
 			<h2
-				class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+				class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
 			>
 				Our Mission
 			</h2>
@@ -324,9 +332,9 @@
 </section>
 
 <!-- Gallery Section -->
-<section bind:this={gallerySection} class="section-spacing relative">
+<section bind:this={gallerySection} class="section-spacing relative bg-muted/30">
 	<!-- Subtle Background Pattern -->
-	<div class="absolute inset-0 pattern-grid opacity-20" aria-hidden="true"></div>
+	<div class="absolute inset-0 pattern-grid opacity-15" aria-hidden="true"></div>
 
 	<div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Section Header -->

@@ -72,7 +72,12 @@
 		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each activities as activity, index}
 				<div
-					class="group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-2"
+					class="group relative overflow-hidden rounded-3xl border 
+					border-teal-100/50 dark:border-teal-900/50 bg-card/90 
+					dark:bg-card/70 p-8 shadow-lg shadow-black/5 backdrop-blur-sm 
+					transition-all duration-300 hover:border-teal-200 
+					dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/20 
+					 hover:-translate-y-2"
 					style="animation-delay: {index * 0.1}s"
 				>
 					<!-- Icon Container -->

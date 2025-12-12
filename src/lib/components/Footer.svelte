@@ -8,7 +8,7 @@
 	};
 </script>
 
-<footer class="relative border-t border-teal-200/50 dark:border-teal-800/50 bg-linear-to-br from-teal-50/40 via-emerald-50/20 to-background dark:from-teal-950/20 dark:via-emerald-950/10 dark:to-background">
+<footer class="relative border-t-2 border-teal-200/60 dark:border-teal-800/60 bg-linear-to-br from-teal-50/40 via-emerald-50/20 to-background dark:from-teal-950/20 dark:via-emerald-950/10 dark:to-background">
 	<!-- Subtle Background Pattern -->
 	<div class="absolute inset-0 pattern-dot-grid opacity-15" aria-hidden="true"></div>
 
@@ -20,7 +20,7 @@
 					Madrasha
 				</h3>
 				<p class="text-sm leading-relaxed text-muted-foreground max-w-sm">
-					Islamic education center fostering spiritual growth and academic excellence.
+					Empowering minds, enriching faith.
 				</p>
 				<!-- Decorative Element -->
 				<div class="pt-2">
