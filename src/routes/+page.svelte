@@ -4,11 +4,15 @@
 	import { assets, heroStats } from '$lib/data/content';
 	import { setupScrollAnimation } from '$lib/utils/scroll-animation';
 
+	let heroSection: HTMLElement;
+	let statsSection: HTMLElement;
 	let missionSection: HTMLElement;
 	let featuresSection: HTMLElement;
 	let ctaSection: HTMLElement;
 
 	onMount(() => {
+		if (heroSection) setupScrollAnimation(heroSection, { animation: 'fade', threshold: 0.2 });
+		if (statsSection) setupScrollAnimation(statsSection, { animation: 'slide-up', threshold: 0.1 });
 		if (missionSection) setupScrollAnimation(missionSection, { animation: 'slide-up' });
 		if (featuresSection) setupScrollAnimation(featuresSection, { animation: 'fade' });
 		if (ctaSection) setupScrollAnimation(ctaSection, { animation: 'slide-up' });
@@ -21,121 +25,182 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="relative overflow-hidden bg-linear-to-br from-primary/5 via-background to-primary/10 py-16 sm:py-24 lg:py-32">
+<section
+	bind:this={heroSection}
+	class="relative overflow-hidden bg-linear-to-br from-background via-teal-50/30 to-emerald-50/20 dark:from-background dark:via-teal-950/10 dark:to-emerald-950/5 py-20 sm:py-28 lg:py-36"
+>
+	<!-- Subtle Background Pattern -->
+	<div class="absolute inset-0 pattern-geometric opacity-40" aria-hidden="true"></div>
+
 	<!-- Decorative Background Elements -->
-	<div class="absolute inset-0 overflow-hidden">
+	<div class="absolute inset-0 overflow-hidden" aria-hidden="true">
 		<!-- Large Circle -->
 		<div
-			class="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
-			aria-hidden="true"
+			class="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal-200/20 dark:bg-teal-900/20 blur-3xl"
 		></div>
 		<!-- Medium Circle -->
 		<div
-			class="absolute top-1/2 -left-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"
-			aria-hidden="true"
+			class="absolute top-1/2 -left-20 h-64 w-64 rounded-full bg-emerald-200/15 dark:bg-emerald-900/15 blur-3xl"
 		></div>
 		<!-- Small Circle -->
 		<div
-			class="absolute bottom-20 right-1/4 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
-			aria-hidden="true"
-		></div>
-		<!-- Geometric Shapes -->
-		<div
-			class="absolute top-1/4 left-1/4 h-32 w-32 rotate-45 rounded-lg bg-primary/5 blur-xl"
-			aria-hidden="true"
+			class="absolute bottom-20 right-1/4 h-40 w-40 rounded-full bg-teal-300/20 dark:bg-teal-800/20 blur-2xl"
 		></div>
 	</div>
 
 	<div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+		<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-20">
 			<!-- Left Column: Text Content -->
 			<div class="text-center lg:text-left">
-				<!-- Badge/Highlight -->
-				<div class="mb-6 inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-					<span class="mr-2">🕌</span>
-					Quality Islamic Education
+				<!-- Badge Above Headline -->
+				<div
+					class="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200/50 dark:border-teal-800/50 bg-teal-50/80 dark:bg-teal-950/30 px-4 py-2 text-sm font-semibold text-teal-700 dark:text-teal-300 shadow-sm backdrop-blur-sm"
+				>
+					<span class="text-base">🕌</span>
+					<span>Quality Islamic Education</span>
 				</div>
 
 				<!-- Main Heading -->
 				<h1
-					class="text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
+					class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
 				>
 					Welcome to Our
-					<span class="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+					<span
+						class="block bg-linear-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 bg-clip-text text-transparent"
+					>
 						Madrasha
 					</span>
 				</h1>
 
 				<!-- Subheading -->
-				<p class="mt-8 text-xl leading-8 text-muted-foreground sm:text-2xl">
+				<p
+					class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl lg:max-w-2xl"
+				>
 					Dedicated to providing quality Islamic education and nurturing the next generation of
 					learners with knowledge, wisdom, and character.
 				</p>
 
 				<!-- CTA Buttons -->
-				<div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
-					<Button href="/about" size="lg" class="w-full sm:w-auto">
+				<div
+					class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start"
+				>
+					<Button
+						href="/about"
+						size="lg"
+						class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white shadow-lg shadow-teal-500/25 hover:shadow-xl hover:shadow-teal-500/30 transition-all duration-300"
+					>
 						Learn More
 					</Button>
-					<Button href="/contact" variant="outline" size="lg" class="w-full sm:w-auto">
+					<Button
+						href="/contact"
+						variant="outline"
+						size="lg"
+						class="w-full sm:w-auto border-2 border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950/30 hover:border-teal-300 dark:hover:border-teal-700 transition-all duration-300"
+					>
 						Contact Us
 					</Button>
 				</div>
-
-				<!-- Quick Stats (Optional) -->
-				<div class="mt-12 grid grid-cols-3 gap-8 border-t border-border pt-8">
-					<div>
-						<div class="text-2xl font-bold text-primary">{heroStats.students}</div>
-						<div class="text-sm text-muted-foreground">Students</div>
-					</div>
-					<div>
-						<div class="text-2xl font-bold text-primary">{heroStats.programs}</div>
-						<div class="text-sm text-muted-foreground">Programs</div>
-					</div>
-					<div>
-						<div class="text-2xl font-bold text-primary">{heroStats.years}</div>
-						<div class="text-sm text-muted-foreground">Years</div>
-					</div>
-				</div>
 			</div>
 
-			<!-- Right Column: Illustration/Image -->
+			<!-- Right Column: Image/Pattern -->
 			<div class="relative flex items-center justify-center lg:justify-end">
 				<!-- Decorative Frame -->
-				<div class="relative">
+				<div class="relative w-full max-w-lg">
 					<!-- Main Image Container -->
 					<div
-						class="relative h-[400px] w-full overflow-hidden rounded-2xl bg-linear-to-br from-primary/20 to-primary/5 shadow-2xl sm:h-[500px] lg:h-[600px]"
+						class="relative h-[400px] w-full overflow-hidden rounded-3xl bg-linear-to-br from-teal-100/50 to-emerald-100/50 dark:from-teal-900/30 dark:to-emerald-900/30 shadow-2xl shadow-teal-500/10 sm:h-[500px] lg:h-[600px] xl:h-[650px]"
 					>
-						<!-- Placeholder for image - replace with actual image -->
-						<div
-							class="flex h-full w-full items-center justify-center bg-linear-to-br from-primary/10 via-primary/5 to-background"
-						>
-							<!-- Hero Image -->
-							<img
-								src={assets.hero.primary}
-								alt="Madrasha - Islamic Education Center"
-								class="h-full w-full object-cover"
-								loading="eager"
-							/>
-						</div>
+						<!-- Hero Image -->
+						<img
+							src={assets.hero.primary}
+							alt="Madrasha - Islamic Education Center"
+							class="h-full w-full object-cover"
+							loading="eager"
+						/>
 
 						<!-- Overlay Gradient -->
 						<div
-							class="absolute inset-0 bg-linear-to-t from-background/50 via-transparent to-transparent"
+							class="absolute inset-0 bg-linear-to-t from-background/60 via-transparent to-transparent"
+						></div>
+
+						<!-- Decorative Border Glow -->
+						<div
+							class="absolute inset-0 rounded-3xl border-2 border-teal-200/30 dark:border-teal-800/30"
 						></div>
 					</div>
 
-					<!-- Decorative Accent -->
+					<!-- Decorative Accent Elements -->
 					<div
-						class="absolute -bottom-6 -right-6 h-24 w-24 rounded-full bg-primary/20 blur-2xl"
+						class="absolute -bottom-4 -right-4 h-20 w-20 rounded-full bg-teal-300/30 dark:bg-teal-700/30 blur-2xl"
 						aria-hidden="true"
 					></div>
 					<div
-						class="absolute -top-6 -left-6 h-32 w-32 rounded-full bg-primary/10 blur-3xl"
+						class="absolute -top-4 -left-4 h-28 w-28 rounded-full bg-emerald-300/20 dark:bg-emerald-700/20 blur-3xl"
 						aria-hidden="true"
 					></div>
 				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Stats Section -->
+<section
+	bind:this={statsSection}
+	class="relative -mt-8 mb-8 sm:-mt-12 sm:mb-12 lg:-mt-16 lg:mb-16"
+>
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			<!-- Stat Card 1 -->
+			<div
+				class="group relative overflow-hidden rounded-2xl border border-teal-100/50 dark:border-teal-900/50 bg-card/80 dark:bg-card/60 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-lg hover:shadow-teal-500/10 hover:-translate-y-1"
+			>
+				<div class="text-3xl font-bold text-teal-600 dark:text-teal-400">{heroStats.students}</div>
+				<div class="mt-2 text-sm font-medium text-muted-foreground">Active Students</div>
+				<!-- Decorative accent -->
+				<div
+					class="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-teal-100/30 dark:bg-teal-900/30 blur-xl"
+					aria-hidden="true"
+				></div>
+			</div>
+
+			<!-- Stat Card 2 -->
+			<div
+				class="group relative overflow-hidden rounded-2xl border border-teal-100/50 dark:border-teal-900/50 bg-card/80 dark:bg-card/60 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-lg hover:shadow-teal-500/10 hover:-translate-y-1"
+			>
+				<div class="text-3xl font-bold text-teal-600 dark:text-teal-400">{heroStats.programs}</div>
+				<div class="mt-2 text-sm font-medium text-muted-foreground">Programs Offered</div>
+				<!-- Decorative accent -->
+				<div
+					class="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-emerald-100/30 dark:bg-emerald-900/30 blur-xl"
+					aria-hidden="true"
+				></div>
+			</div>
+
+			<!-- Stat Card 3 -->
+			<div
+				class="group relative overflow-hidden rounded-2xl border border-teal-100/50 dark:border-teal-900/50 bg-card/80 dark:bg-card/60 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-lg hover:shadow-teal-500/10 hover:-translate-y-1"
+			>
+				<div class="text-3xl font-bold text-teal-600 dark:text-teal-400">{heroStats.years}</div>
+				<div class="mt-2 text-sm font-medium text-muted-foreground">Years of Excellence</div>
+				<!-- Decorative accent -->
+				<div
+					class="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-teal-100/30 dark:bg-teal-900/30 blur-xl"
+					aria-hidden="true"
+				></div>
+			</div>
+
+			<!-- Stat Card 4 -->
+			<div
+				class="group relative overflow-hidden rounded-2xl border border-teal-100/50 dark:border-teal-900/50 bg-card/80 dark:bg-card/60 p-6 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-lg hover:shadow-teal-500/10 hover:-translate-y-1"
+			>
+				<div class="text-3xl font-bold text-teal-600 dark:text-teal-400">100%</div>
+				<div class="mt-2 text-sm font-medium text-muted-foreground">Satisfaction Rate</div>
+				<!-- Decorative accent -->
+				<div
+					class="absolute -right-4 -top-4 h-16 w-16 rounded-full bg-emerald-100/30 dark:bg-emerald-900/30 blur-xl"
+					aria-hidden="true"
+				></div>
 			</div>
 		</div>
 	</div>
