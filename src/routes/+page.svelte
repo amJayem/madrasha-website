@@ -386,13 +386,6 @@
 						<div
 							class="absolute inset-0 rounded-3xl border-2 border-teal-200/0 transition-colors duration-500 group-hover:border-teal-300/60 dark:group-hover:border-teal-700/60"
 						></div>
-
-						<!-- Hover Indicator -->
-						<div
-							class="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm opacity-0 transition-all duration-500 group-hover:opacity-100 flex items-center justify-center"
-						>
-							<span class="text-white text-lg">👁️</span>
-						</div>
 					</a>
 				{/each}
 			</div>
