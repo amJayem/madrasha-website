@@ -111,19 +111,33 @@
 
 	<div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-6xl">
-			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+			<div class="grid grid-cols-1 gap-8 
+			lg:grid-cols-1 lg:gap-12
+			"
+			>
 				<!-- Contact Information -->
 				<div
-					class="group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 sm:p-10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10"
+					class="group relative overflow-hidden rounded-3xl border 
+					border-teal-100/50 dark:border-teal-900/50 bg-card/90 
+					dark:bg-card/70 p-8 sm:p-10 shadow-lg backdrop-blur-sm 
+					transition-all duration-300 hover:border-teal-200 
+					dark:hover:border-teal-800 hover:shadow-xl 
+					hover:shadow-teal-500/10"
 				>
 					<!-- Icon Container -->
-					<div
-						class="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br from-teal-100 to-emerald-100 dark:from-teal-900/50 dark:to-emerald-900/50 text-4xl shadow-md"
-					>
-						📍
-					</div>
+					 <div class="flex gap-5 justify-center items-center">
 
-					<h2 class="mb-8 text-3xl font-bold text-foreground sm:text-4xl">Get in Touch</h2>
+						 <div
+							 class="mb-8 flex h-16 w-16 items-center justify-center 
+							 rounded-2xl bg-linear-to-br from-teal-100 to-emerald-100 
+							 dark:from-teal-900/50 dark:to-emerald-900/50 text-4xl 
+							 shadow-md"
+						 >
+							 📍
+						 </div>
+	 
+						 <h2 class="mb-8 text-3xl font-bold text-foreground sm:text-4xl">Get in Touch</h2>
+					 </div>
 					<div class="space-y-6">
 						<div class="flex items-start gap-4">
 							<span class="mt-1 text-2xl text-teal-600 dark:text-teal-400">🏠</span>
@@ -181,7 +195,7 @@
 
 				<!-- Contact Form -->
 				<div
-					class="group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 sm:p-10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10"
+					class="hidden group relative overflow-hidden rounded-3xl border border-teal-100/50 dark:border-teal-900/50 bg-card/90 dark:bg-card/70 p-8 sm:p-10 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-500/10"
 				>
 					<!-- Icon Container -->
 					<div
@@ -191,7 +205,7 @@
 					</div>
 
 					<h2 class="mb-8 text-3xl font-bold text-foreground sm:text-4xl">Send us a Message</h2>
-					<form onsubmit={handleSubmit} class="space-y-6">
+					<form onsubmit={handleSubmit} class="space-y-6 ">
 						<!-- Name -->
 						<div>
 							<label for="name" class="block text-sm font-medium mb-2">
