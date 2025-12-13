@@ -12,7 +12,7 @@ import classroomImage from '$lib/assets/classroom.png';
 import prayerImage from '$lib/assets/prayer-2.jpg';
 import graduationImage from '$lib/assets/Graduation-ceremony.jpg';
 import activitiesImage from '$lib/assets/activities.jpg';
-import readingQuranImage from '$lib/assets/reading-quran.jpg';
+import readingQuranImage from '$lib/assets/Reading-Quran-1.jpg';
 import mosqueImage2 from '$lib/assets/mosque-image-2.jpg';
 import quranImage1 from '$lib/assets/quran-image-1.jpg';
 
